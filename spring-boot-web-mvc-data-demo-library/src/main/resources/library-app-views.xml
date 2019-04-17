@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+	<bean id="main-menu"
+		class="org.springframework.web.servlet.view.JstlView">
+		<property name="url" value="/WEB-INF/pages/menu.jsp" />
+	</bean>
+ 
+	<bean id="all-subjects-view"
+		class="org.springframework.web.servlet.view.JstlView">
+		<property name="url" value="/WEB-INF/pages/all-subjects.jsp" />
+	</bean>
+
+	<bean id="all-books-view"
+		class="org.springframework.web.servlet.view.JstlView">
+		<property name="url" value="/WEB-INF/pages/all-books.jsp" />
+	</bean>
+
+	<bean id="search-book-view"
+		class="org.springframework.web.servlet.view.JstlView">
+		<property name="url" value="/WEB-INF/pages/search-book.jsp" />
+	</bean>
+
+	<bean id="delete-book-view"
+		class="org.springframework.web.servlet.view.JstlView">
+		<property name="url" value="/WEB-INF/pages/delete-book.jsp" />
+	</bean>
+
+	<bean id="search-subject-view"
+		class="org.springframework.web.servlet.view.JstlView">
+		<property name="url" value="/WEB-INF/pages/search-subject.jsp" />
+	</bean>
+
+	<bean id="search-subject-by-duration-view"
+		class="org.springframework.web.servlet.view.JstlView">
+		<property name="url"
+			value="/WEB-INF/pages/search-subject-by-duration.jsp" />
+	</bean>
+
+	<bean id="delete-subject-view"
+		class="org.springframework.web.servlet.view.JstlView">
+		<property name="url" value="/WEB-INF/pages/delete-subject.jsp" />
+	</bean>
+
+	<bean id="add-subject-view"
+		class="org.springframework.web.servlet.view.JstlView">
+		<property name="url" value="/WEB-INF/pages/add-subject.jsp" />
+	</bean>
+
+	<bean id="add-book-view"
+		class="org.springframework.web.servlet.view.JstlView">
+		<property name="url" value="/WEB-INF/pages/add-book.jsp" />
+	</bean>
+
+	<bean id="default"
+		class="org.springframework.web.servlet.view.JstlView">
+		<property name="url" value="/WEB-INF/pages/index.jsp" />
+	</bean>
+
+	<bean id="error"
+		class="org.springframework.web.servlet.view.JstlView">
+		<property name="url" value="/WEB-INF/pages/error.jsp" />
+	</bean>
+</beans>
