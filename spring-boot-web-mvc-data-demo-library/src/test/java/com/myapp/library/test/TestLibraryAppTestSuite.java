@@ -22,10 +22,10 @@ import com.myapp.library.menu.service.LibraryServiceUnitTestManager;
 		LibrarySubjectControllerTestManager.class, LibraryBookControllerTestManager.class,
 		LibraryErrorControllerTestManager.class, LibraryDaoIntegrationTestManager.class,
 		LibraryServiceIntegrationTestManager.class, LibraryServiceUnitTestManager.class })
-public class LibraryAppTestSuite {
+public class TestLibraryAppTestSuite {
 
 	public static void main(String[] args) {
-		Result result = JUnitCore.runClasses(LibraryAppTestSuite.class);
+		Result result = JUnitCore.runClasses(TestLibraryAppTestSuite.class);
 		int i = 1;
 
 		for (Failure failure : result.getFailures()) {
