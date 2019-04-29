@@ -14,6 +14,7 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.myapp.library.entity.Book;
 import com.myapp.library.entity.Subject;
@@ -41,21 +42,21 @@ public class LibraryDaoIntegrationTestManager {
 		Subject s3 = new Subject(0, "Maven", 78, null);
 		Subject s4 = new Subject(0, "Jenkins", 28, null);
 		Subject s5 = new Subject(0, "AWS", 92, null);
- 
-		entityMngr.persist(s1);
-		entityMngr.persist(s2);
-		entityMngr.persist(s3);
-		entityMngr.persist(s4);
-		entityMngr.persist(s5);
+
+		s1 = entityMngr.persist(s1);
+		s2 = entityMngr.persist(s2);
+		s3 = entityMngr.persist(s3);
+		s4 = entityMngr.persist(s4);
+		s5 = entityMngr.persist(s5);
 
 		entityMngr.flush();
 
-		Book b1 = new Book(1L, "Junit with Spring", 1215, 1, LocalDate.now(), s1);
-		Book b2 = new Book(2L, "Spring Boot Fundamentals", 1218, 2, LocalDate.now(), s2);
-		Book b3 = new Book(3L, "Spring Boot Workshop", 2000, 1, LocalDate.now(), s2);
-		Book b4 = new Book(4L, "Learning Maven", 2001, 1, LocalDate.now(), s3);
-		Book b5 = new Book(5L, "Building projects with Maven", 1800, 1, LocalDate.now(), s3);
-		Book b6 = new Book(6L, "Jenkins in a nutshell", 1789, 1, LocalDate.now(), s4);
+		Book b1 = new Book(0, "Junit with Spring", 1215, 1, LocalDate.now(), s1);
+		Book b2 = new Book(0, "Spring Boot Fundamentals", 1218, 2, LocalDate.now(), s2);
+		Book b3 = new Book(0, "Spring Boot Workshop", 2000, 1, LocalDate.now(), s2);
+		Book b4 = new Book(0, "Learning Maven", 2001, 1, LocalDate.now(), s3);
+		Book b5 = new Book(0, "Building projects with Maven", 1800, 1, LocalDate.now(), s3);
+		Book b6 = new Book(0, "Jenkins in a nutshell", 1789, 1, LocalDate.now(), s4);
 
 		entityMngr.persist(b1);
 		entityMngr.persist(b2);
@@ -104,7 +105,7 @@ public class LibraryDaoIntegrationTestManager {
 		assertTrue("Spring Boot"
 				.equals(bookRepository.findByTitle("Spring Boot Workshop").get().getSubject().getSubtitle()));
 	}
- 
+
 	@Test
 	public void testFindBookByTitle_shouldReturnCorrectPublishDate() throws LibraryServiceException {
 		assertTrue(LocalDate.now().equals(bookRepository.findByTitle("Spring Boot Workshop").get().getPublishDate()));
